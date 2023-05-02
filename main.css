@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   min-height: 100vh;
   color: #fafafa;
@@ -15,8 +21,66 @@ body {
 }
 
 #skills img {
-    width: 40px;
-    height: 40px;
-    display: block;
-    margin: auto;
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin: auto;
+}
+
+.skill-item:hover {
+  cursor: pointer;
+  box-shadow: 0px 3px 6px 0px rgba(0, 255, 255, 0.7);
+}
+
+.project-card {
+  border-radius: 20px;
+  border: 5px solid #ddd;
+  overflow: hidden;
+  box-shadow: 0px 3px 6px 0px rgba(0, 255, 255, 0.7);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px 1px rgba(0, 255, 255, 0.7);
+}
+
+.project-card:hover .project-card-body {
+  right: 0;
+}
+
+.project-card img {
+  border-radius: 15px;
+}
+
+.project-card-body {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -100%;
+  position: absolute;
+  background: #1f3d4738;
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  color: #fff;
+  text-shadow: 0 0 3px #000;
+  z-index: 2;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 2s;
+}
+
+a.card-btn {
+  text-decoration: none;
+  text-shadow: none;
+  color: #1f3d47;
+  color: #08fdd8;
+  background: #8fabba;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  cursor: pointer;
 }
