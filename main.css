@@ -74,8 +74,7 @@ body {
 a.card-btn {
   text-decoration: none;
   text-shadow: none;
-  color: #1f3d47;
-  color: #08fdd8;
+  color: #052b25;
   background: #8fabba;
   padding: 5px;
   border-radius: 5px;
@@ -85,12 +84,3 @@ a.card-btn {
   cursor: pointer;
 }
 
-@media screen and (max-width: 576px) {
-  .project-card-body {
-    padding: 1rem;
-  }
-
-  .project-card p {
-    font-size: 14px;
-  }
-}
