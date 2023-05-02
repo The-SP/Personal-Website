@@ -84,3 +84,13 @@ a.card-btn {
   font-weight: 500;
   cursor: pointer;
 }
+
+@media screen and (max-width: 576px) {
+  .project-card-body {
+    padding: 1rem;
+  }
+
+  .project-card p {
+    font-size: 14px;
+  }
+}
