@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.4354bc56.css",
-    "main.js": "/static/js/main.ed3be4f1.js",
-    "static/media/construction.png": "/static/media/construction.5a235098f8c29ea765ff.png",
-    "static/media/duel.png": "/static/media/duel.866c01492af70f60379e.png",
-    "static/media/movies.png": "/static/media/movies.e974ac4475bcf988a12b.png",
-    "static/media/airplane.png": "/static/media/airplane.b112c14cc99c68c63f2b.png",
-    "static/media/nqueen.png": "/static/media/nqueen.0e5f29738211dac6d2b3.png",
-    "static/media/chatverse.png": "/static/media/chatverse.03d6bcdb178665e27e77.png",
-    "static/media/me.jpeg": "/static/media/me.81220436576ffdbbdb71.jpeg",
-    "static/media/sql.png": "/static/media/sql.4433b01b88a114f4293b.png",
-    "static/media/django.png": "/static/media/django.161aef0b7932bfd883c4.png",
-    "static/media/sort.png": "/static/media/sort.acdf712269f619e008db.png",
-    "static/media/job.png": "/static/media/job.5e6706245f77258b7f4b.png",
-    "static/media/python.png": "/static/media/python.82ab0bdb7e21c02fbe36.png",
-    "static/media/git.png": "/static/media/git.3092b5991e8accb9e7c3.png",
-    "static/media/react.png": "/static/media/react.cb15bfce2a9004ce61c5.png",
-    "index.html": "/index.html",
-    "main.4354bc56.css.map": "/static/css/main.4354bc56.css.map",
-    "main.ed3be4f1.js.map": "/static/js/main.ed3be4f1.js.map"
+    "main.css": "/surajpathak.com.np/static/css/main.4354bc56.css",
+    "main.js": "/surajpathak.com.np/static/js/main.53749260.js",
+    "static/media/construction.png": "/surajpathak.com.np/static/media/construction.5a235098f8c29ea765ff.png",
+    "static/media/duel.png": "/surajpathak.com.np/static/media/duel.866c01492af70f60379e.png",
+    "static/media/movies.png": "/surajpathak.com.np/static/media/movies.e974ac4475bcf988a12b.png",
+    "static/media/airplane.png": "/surajpathak.com.np/static/media/airplane.b112c14cc99c68c63f2b.png",
+    "static/media/nqueen.png": "/surajpathak.com.np/static/media/nqueen.0e5f29738211dac6d2b3.png",
+    "static/media/chatverse.png": "/surajpathak.com.np/static/media/chatverse.03d6bcdb178665e27e77.png",
+    "static/media/me.jpeg": "/surajpathak.com.np/static/media/me.81220436576ffdbbdb71.jpeg",
+    "static/media/sql.png": "/surajpathak.com.np/static/media/sql.4433b01b88a114f4293b.png",
+    "static/media/django.png": "/surajpathak.com.np/static/media/django.161aef0b7932bfd883c4.png",
+    "static/media/sort.png": "/surajpathak.com.np/static/media/sort.acdf712269f619e008db.png",
+    "static/media/job.png": "/surajpathak.com.np/static/media/job.5e6706245f77258b7f4b.png",
+    "static/media/python.png": "/surajpathak.com.np/static/media/python.82ab0bdb7e21c02fbe36.png",
+    "static/media/git.png": "/surajpathak.com.np/static/media/git.3092b5991e8accb9e7c3.png",
+    "static/media/react.png": "/surajpathak.com.np/static/media/react.cb15bfce2a9004ce61c5.png",
+    "index.html": "/surajpathak.com.np/index.html",
+    "main.4354bc56.css.map": "/surajpathak.com.np/static/css/main.4354bc56.css.map",
+    "main.53749260.js.map": "/surajpathak.com.np/static/js/main.53749260.js.map"
   },
   "entrypoints": [
     "static/css/main.4354bc56.css",
-    "static/js/main.ed3be4f1.js"
+    "static/js/main.53749260.js"
   ]
 }
