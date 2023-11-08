@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --custom-bg: #1c1c27;
+  --custom-bgLight: #1c1e27;
+  --custom-primary: #854ce6;
+  --custom-text-light: #f2f3f4;
+  --custom-text-secondary: #b1b2b3;
+  --custom-card: #171721;
+  --custom-card-light: #191924;
+  --custom-clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
+}
+
+body {
+  margin: 0px !important;
+  padding: 0;
+  /* font-family: 'Montserrat', sans-serif; */
+  background: var(--custom-bg);
+  color: var(--custom-text-light);
+}

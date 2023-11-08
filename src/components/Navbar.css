@@ -1,0 +1,19 @@
+nav {
+  background-color: var(--custom-bg);
+}
+
+.nav-link {
+  border-bottom: 2px solid var(--custom-bg);
+  margin: auto;
+}
+
+.nav-link:hover span {
+  color: red !important;
+  border-bottom: 2px solid red;
+  transition: border-bottom 0.5s ease-in;
+}
+
+.navbar-fixed {
+  top: 0;
+  position: sticky;
+}
