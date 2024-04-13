@@ -4,7 +4,7 @@ const Bio = {
   name: "Suraj Pathak",
   roles: ["Full Stack Developer", "Computer Engineer"],
   description:
-    "As a fourth-year computer engineering student at Pulchowk Campus, I have developed a keen interest in the areas of web development, backend APIs, and machine learning. With a passion for staying abreast of emerging technologies, I am constantly seeking opportunities to learn and grow my skillset.",
+    "As a computer engineering graduate from Pulchowk Campus, I have developed a keen interest in the areas of web development, backend APIs, and machine learning. With a passion for staying abreast of emerging technologies, I am constantly seeking opportunities to learn and grow my skillset.",
   github: "https://github.com/The-SP",
   linkedin: "https://www.linkedin.com/in/suraj-pathak-aa8035238/",
   resume: "",
@@ -49,7 +49,7 @@ const projects = [
   {
     name: "Hire Nepal",
     description:
-      "A Job Portal website for finding your dream job in Nepal. This platform offers job listing, recommendations, and tools for building resumes and cover letters to assist users in finding job opportunities.",
+      "A Job Portal website that facilitates seamless job postings, automated resume parsing and applicant ranking for employers, while providing job seekers with personalized job recommendations and a user-friendly interface to apply for their desired positions.",
     tags: [
       {
         name: "react",
@@ -60,13 +60,14 @@ const projects = [
         color: "text-warning",
       },
       {
-        name: "scikit-learn",
+        name: "spaCy",
         color: "text-info",
       },
     ],
     image: projectImages.job,
     links: {
       github: "https://github.com/The-SP/Job-Portal-Frontend",
+      youtube: "https://youtu.be/T3Hj6fBOIFk?si=OPTviGJ4CccTOe4-",
     },
   },
   {
