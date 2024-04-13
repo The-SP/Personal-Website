@@ -1,3 +1,3 @@
 ## Personal Website
 
-### [Visit Site](https://the-sp.github.io/Personal-Website/)
+### [Visit Site](https://surajpathak.com.np/)
