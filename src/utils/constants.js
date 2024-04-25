@@ -67,7 +67,7 @@ const projects = [
     image: projectImages.job,
     links: {
       github: "https://github.com/The-SP/Job-Portal-Frontend",
-      youtube: "https://youtu.be/T3Hj6fBOIFk?si=OPTviGJ4CccTOe4-",
+      youtube: "https://youtu.be/T3Hj6fBOIFk",
     },
   },
   {
@@ -91,7 +91,7 @@ const projects = [
     image: projectImages.movies,
     links: {
       github: "https://github.com/The-SP/Movies-For-U",
-      youtube: "https://www.youtube.com/watch?v=zIf6A0G7pUQ",
+      youtube: "https://youtu.be/zIf6A0G7pUQ",
     },
   },
   {
@@ -111,7 +111,7 @@ const projects = [
     image: projectImages.chatverse,
     links: {
       github: "https://github.com/The-SP/ChatVerse",
-      youtube: "https://www.youtube.com/watch?v=ygIOjBGXJAQ",
+      youtube: "https://youtu.be/15oydchld60",
     },
   },
   {
