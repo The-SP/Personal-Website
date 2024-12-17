@@ -7,7 +7,7 @@ import construction from "./projects/construction.png";
 import duel from "./projects/duel.png";
 import airplane from "./projects/airplane.png";
 
-import css from "./skills/css.png";
+import aws from "./skills/aws.png"
 import django from "./skills/django.png";
 import git from "./skills/git.png";
 import js from "./skills/js.png";
@@ -28,7 +28,7 @@ export const projectImages = {
 };
 
 export const skillImages = {
-  css,
+  aws,
   django,
   git,
   js,

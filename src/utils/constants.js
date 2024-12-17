@@ -12,22 +12,6 @@ const Bio = {
 
 const skills = [
   {
-    name: "JAVASCRIPT",
-    image: skillImages.js,
-  },
-  {
-    name: "REACT",
-    image: skillImages.react,
-  },
-  {
-    name: "NODE.JS",
-    image: skillImages.node,
-  },
-  {
-    name: "HTML/CSS",
-    image: skillImages.css,
-  },
-  {
     name: "PYTHON",
     image: skillImages.python,
   },
@@ -38,6 +22,22 @@ const skills = [
   {
     name: "SQL",
     image: skillImages.sql,
+  },
+  {
+    name: "AWS",
+    image: skillImages.aws,
+  },
+  {
+    name: "JAVASCRIPT",
+    image: skillImages.js,
+  },
+  {
+    name: "REACT",
+    image: skillImages.react,
+  },
+  {
+    name: "NODE.JS",
+    image: skillImages.node,
   },
   {
     name: "GIT",

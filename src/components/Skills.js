@@ -14,7 +14,7 @@ const Skills = () => {
 
         <div className="row">
           {skills.map((skill, index) => (
-            <div className="col-sm-6 col-md-4 col-lg-3 mb-4" key={index}>
+            <div className="col-6 col-md-4 col-lg-3 mb-4" key={index}>
               <MotionBox
                 variants={fadeIn("right", "spring", index * 0.2, 0.75)}
               >
