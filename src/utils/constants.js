@@ -97,21 +97,24 @@ const projects = [
   {
     name: "ChatVerse",
     description:
-      "ChatVerse is a real-time chat application built with Django and Channels. The app allows users to create chat rooms and communicate with each other in real-time via WebSocket connections.",
+      "ChatVerse is a real-time messaging platform built with FastAPI and Next.js. The app supports both direct messages and channel-based communication, featuring WebSocket connections for instant messaging.",
     tags: [
       {
-        name: "django",
+        name: "FastAPI",
         color: "text-success",
       },
       {
-        name: "web-socket",
+        name: "Next.js",
         color: "text-warning",
+      },
+      {
+        name: "web-socket",
+        color: "text-info",
       },
     ],
     image: projectImages.chatverse,
     links: {
       github: "https://github.com/The-SP/ChatVerse",
-      youtube: "https://youtu.be/15oydchld60",
     },
   },
   {
