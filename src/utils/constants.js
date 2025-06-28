@@ -97,7 +97,7 @@ const projects = [
   {
     name: "ChatVerse",
     description:
-      "ChatVerse is a real-time messaging platform built with FastAPI and Next.js. The app supports both direct messages and channel-based communication, featuring WebSocket connections for instant messaging.",
+      "ChatVerse is a real-time messaging platform built with FastAPI and Next.js. The app supports instant messages with WebSocket connections and features AI-powered conversation summaries of chat history.",
     tags: [
       {
         name: "FastAPI",
@@ -108,8 +108,12 @@ const projects = [
         color: "text-warning",
       },
       {
-        name: "web-socket",
+        name: "Web-Socket",
         color: "text-info",
+      },
+      {
+        name: "LLM",
+        color: "text-danger",
       },
     ],
     image: projectImages.chatverse,
