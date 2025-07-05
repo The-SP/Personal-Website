@@ -1,10 +1,13 @@
 'use client';
 
-import React from 'react';
-import Image from 'next/image';
 import { Github, Linkedin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import React from 'react';
 import Typewriter from 'typewriter-effect';
+
+import { Button } from '@/components/ui/button';
+
+import { FireworksBackground } from './animate-ui/backgrounds/fireworks';
 
 // Data variables
 const bio =
@@ -99,12 +102,15 @@ const About = () => {
           {/* Profile image - First on mobile, second on desktop */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
+              {/* Fireworks background for profile section */}
+              <FireworksBackground className="absolute -inset-12 md:-inset-16 lg:-inset-20 w-auto h-auto z-0" />
+
               {/* Background decoration */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl scale-110"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl scale-110 z-10"></div>
 
               {/* Profile image container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/20 dark:border-white/10 shadow-2xl">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 z-20">
+                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/20 dark:border-white/10 shadow-2xl backdrop-blur-sm">
                   <Image
                     src="/images/profile.jpeg"
                     alt="Suraj Pathak"
