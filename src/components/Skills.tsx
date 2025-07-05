@@ -109,10 +109,10 @@ const Skills = () => {
               key={skill.name}
               className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700 backdrop-blur-sm"
             >
-              <CardContent className="p-6">
+              <CardContent>
                 <div className="flex flex-col items-center text-center space-y-4">
                   {/* Skill Image */}
-                  <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 p-3">
+                  <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 p-2">
                     <Image
                       src={skill.image}
                       alt={skill.name}
