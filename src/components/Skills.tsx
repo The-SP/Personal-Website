@@ -48,9 +48,9 @@ const skills = [
     image: '/images/skills/typescript.svg',
   },
   {
-    name: 'REACT',
-    category: 'Frontend',
-    image: '/images/skills/react.svg',
+    name: 'NODE.JS',
+    category: 'Backend',
+    image: '/images/skills/node.svg',
   },
   {
     name: 'NEXT.JS',
@@ -58,9 +58,9 @@ const skills = [
     image: '/images/skills/nextjs.svg',
   },
   {
-    name: 'NODE.JS',
-    category: 'Backend',
-    image: '/images/skills/node.svg',
+    name: 'REACT',
+    category: 'Frontend',
+    image: '/images/skills/react.svg',
   },
   {
     name: 'CSS3',

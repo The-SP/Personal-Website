@@ -46,6 +46,30 @@ const projects = [
     },
   },
   {
+    title: 'Receipt-AI',
+    description:
+      "A full-stack application for parsing receipts using AI. Features receipt parsing from images, AI-powered analysis using Google's Gemini models, and rate-limited API endpoints for efficient processing.",
+    image: '/images/projects/receipt-ai.png',
+    tools: ['FastAPI', 'Next.js', 'Langchain', 'Gemini API', 'Redis'],
+    links: {
+      github: 'https://github.com/The-SP/Receipt-AI',
+      live: null,
+      youtube: null,
+    },
+  },
+  {
+    title: 'Visual-Based E-Commerce Recommender',
+    description:
+      'A Deep Learning-based E-Commerce fashion product Recommendation System utilizing the ResNet50 architecture. It provides fashion recommendations based on visual similarity using advanced computer vision techniques.',
+    image: '/images/projects/ecommerce-recommender.png',
+    tools: ['TensorFlow', 'CNN', 'Transfer Learning', 'ResNet50'],
+    links: {
+      github: 'https://github.com/The-SP/Visual-Based-E-Commerce-Recommender',
+      live: null,
+      youtube: null,
+    },
+  },
+  {
     title: 'Sorting Visualizer',
     description:
       'Visualization of different sorting algorithms (bubble, insertion, selection, quick, merge, radix, shell, heap) using React',
@@ -81,18 +105,18 @@ const projects = [
       youtube: null,
     },
   },
-  {
-    title: '3D Airplane Modeling',
-    description:
-      '3D modeling of Airbus A380 using three.js This was done as a part of Computer Graphics course.',
-    image: '/images/projects/airplane.png',
-    tools: ['Three.js', 'C++'],
-    links: {
-      github: 'https://github.com/The-SP/Airplane-3JS',
-      live: null,
-      youtube: null,
-    },
-  },
+  // {
+  //   title: '3D Airplane Modeling',
+  //   description:
+  //     '3D modeling of Airbus A380 using three.js This was done as a part of Computer Graphics course.',
+  //   image: '/images/projects/airplane.png',
+  //   tools: ['Three.js', 'C++'],
+  //   links: {
+  //     github: 'https://github.com/The-SP/Airplane-3JS',
+  //     live: null,
+  //     youtube: null,
+  //   },
+  // },
   {
     title: 'Duel Battle',
     description:
@@ -133,8 +157,8 @@ const Projects = () => {
               className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700 backdrop-blur-sm overflow-hidden"
             >
               <CardContent className="p-0">
-                {/* Project Image */}
-                <div className="relative h-48 overflow-hidden">
+                {/* Project Image - Increased height from h-48 to h-64 */}
+                <div className="relative h-64 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5 z-10" />
                   <Image
                     src={project.image}
