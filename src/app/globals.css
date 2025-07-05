@@ -131,7 +131,7 @@
 
   /* Dark theme portfolio background - similar to screenshot */
   .dark body {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #272743 100%);
     min-height: 100vh;
   }
 
