@@ -106,7 +106,7 @@ const Skills = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {skills.map((skill, index) => (
             <Card
-              key={skill.name}
+              key={index}
               className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700 backdrop-blur-sm"
             >
               <CardContent>
@@ -139,7 +139,7 @@ const Skills = () => {
               Always Learning
             </h3>
             <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Technology evolves rapidly, and I'm committed to staying current
+              Technology evolves rapidly, and I&apos;m committed to staying current
               with the latest trends, frameworks, and best practices in software
               development. I believe in continuous learning and regularly
               explore new technologies to enhance my skill set.

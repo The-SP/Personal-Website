@@ -144,7 +144,7 @@ const Projects = () => {
             </span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Here are some of the projects I've worked on, showcasing my skills
+            Here are some of the projects I&apos;ve worked on, showcasing my skills
             in web development, machine learning, and software engineering
           </p>
         </div>
