@@ -18,14 +18,14 @@ const roles = ['Full Stack Developer', 'Data Engineer', 'Computer Engineer'];
 const socialLinks = [
   {
     name: 'GitHub',
-    url: 'https://github.com/surajpathak',
+    url: 'https://github.com/the-sp',
     icon: Github,
     hoverColor:
       'hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900',
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/surajpathak',
+    url: 'https://www.linkedin.com/in/suraj-pathak-aa8035238',
     icon: Linkedin,
     hoverColor: 'hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500',
   },
