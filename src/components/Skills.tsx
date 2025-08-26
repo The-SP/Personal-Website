@@ -13,14 +13,14 @@ const skills = [
     image: '/images/skills/python.svg',
   },
   {
-    name: 'DJANGO',
-    category: 'Backend',
-    image: '/images/skills/django.svg',
-  },
-  {
     name: 'FASTAPI',
     category: 'Backend',
     image: '/images/skills/fastapi.svg',
+  },
+  {
+    name: 'DJANGO',
+    category: 'Backend',
+    image: '/images/skills/django.svg',
   },
   {
     name: 'POSTGRESQL',
@@ -36,6 +36,11 @@ const skills = [
     name: 'DOCKER',
     category: 'Tools',
     image: '/images/skills/docker.svg',
+  },
+  {
+    name: 'LANGCHAIN',
+    category: 'LLM',
+    image: '/images/skills/langchain.svg',
   },
   {
     name: 'JAVASCRIPT',
@@ -61,11 +66,6 @@ const skills = [
     name: 'REACT',
     category: 'Frontend',
     image: '/images/skills/react.svg',
-  },
-  {
-    name: 'CSS3',
-    category: 'Frontend',
-    image: '/images/skills/css3.svg',
   },
   {
     name: 'GIT',
