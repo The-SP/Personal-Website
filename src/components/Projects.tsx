@@ -52,6 +52,19 @@ const projects = [
     },
   },
   {
+    title: 'Auto-Commenter',
+    description:
+      "A Reddit Auto Commenter application that analyzes Reddit posts and generates contextually appropriate AI comments in various tones (funny, analytical, controversial, etc.) using LLM. The system includes automated scheduling capabilities for daily comment posting.",
+    image: '/images/projects/auto-commenter.png',
+    tools: ['Langchain', 'FastAPI', 'Next.js', 'Reddit Praw'],
+    categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
+    links: {
+      github: 'https://github.com/The-SP/auto-commenter',
+      live: null,
+      youtube: null,
+    },
+  },
+  {
     title: 'Receipt-AI',
     description:
       "A full-stack application for parsing receipts using AI. Features receipt parsing from images, AI-powered analysis using Google's Gemini models, and rate-limited API endpoints for efficient processing.",
