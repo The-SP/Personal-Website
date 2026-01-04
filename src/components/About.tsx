@@ -25,7 +25,7 @@ const socialLinks = [
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/suraj-pathak-aa8035238',
+    url: 'https://www.linkedin.com/in/surajpathak-eng',
     icon: Linkedin,
     hoverColor: 'hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500',
   },
@@ -112,7 +112,7 @@ const About = () => {
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 z-20">
                 <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/20 dark:border-white/10 shadow-2xl backdrop-blur-sm">
                   <Image
-                    src="/images/profile.jpeg"
+                    src="/images/profile.png"
                     alt="Suraj Pathak"
                     width={400}
                     height={400}
