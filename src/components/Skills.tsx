@@ -5,25 +5,25 @@ import React from 'react';
 
 import { Card, CardContent } from '@/components/ui/card';
 
-// Skills data with SVG images
+// Skills data with SVG images from https://devicon.dev/
 const skills = [
   {
-    name: 'PYTHON',
+    name: 'Python',
     category: 'Backend',
     image: '/images/skills/python.svg',
   },
   {
-    name: 'FASTAPI',
+    name: 'FastAPI',
     category: 'Backend',
     image: '/images/skills/fastapi.svg',
   },
   {
-    name: 'DJANGO',
+    name: 'Django',
     category: 'Backend',
     image: '/images/skills/django.svg',
   },
   {
-    name: 'POSTGRESQL',
+    name: 'PostgreSQL',
     category: 'Database',
     image: '/images/skills/postgresql.svg',
   },
@@ -33,52 +33,52 @@ const skills = [
     image: '/images/skills/aws.svg',
   },
   {
-    name: 'DOCKER',
+    name: 'Docker',
     category: 'Tools',
     image: '/images/skills/docker.svg',
   },
   {
-    name: 'LANGCHAIN',
+    name: 'LangChain',
     category: 'LLM',
     image: '/images/skills/langchain.svg',
   },
   {
-    name: 'JAVASCRIPT',
-    category: 'Frontend',
-    image: '/images/skills/javascript.svg',
+    name: 'Redis',
+    category: 'Database',
+    image: '/images/skills/redis.svg',
   },
   {
-    name: 'TYPESCRIPT',
-    category: 'Frontend',
-    image: '/images/skills/typescript.svg',
-  },
-  {
-    name: 'NODE.JS',
+    name: 'Node.js',
     category: 'Backend',
     image: '/images/skills/node.svg',
   },
   {
-    name: 'NEXT.JS',
+    name: 'TypeScript',
+    category: 'Frontend',
+    image: '/images/skills/typescript.svg',
+  },
+  {
+    name: 'Next.js',
     category: 'Frontend',
     image: '/images/skills/nextjs.svg',
   },
   {
-    name: 'REACT',
+    name: 'React',
     category: 'Frontend',
     image: '/images/skills/react.svg',
   },
   {
-    name: 'GIT',
+    name: 'Git',
     category: 'Tools',
     image: '/images/skills/git.svg',
   },
   {
-    name: 'SCIKIT-LEARN',
+    name: 'Scikit-Learn',
     category: 'Machine Learning',
     image: '/images/skills/scikitlearn.svg',
   },
   {
-    name: 'TENSORFLOW',
+    name: 'TensorFlow',
     category: 'Machine Learning',
     image: '/images/skills/tensorflow.svg',
   },
@@ -130,21 +130,6 @@ const Skills = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Additional Skills Summary */}
-        <div className="mt-16 text-center">
-          <div className="bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              Always Learning
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Technology evolves rapidly, and I&apos;m committed to staying current
-              with the latest trends, frameworks, and best practices in software
-              development. I believe in continuous learning and regularly
-              explore new technologies to enhance my skill set.
-            </p>
-          </div>
         </div>
       </div>
     </section>
