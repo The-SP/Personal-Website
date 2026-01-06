@@ -15,9 +15,9 @@ const projects = [
   {
     title: 'Hire Nepal',
     description:
-      'A Job Portal website that facilitates seamless job postings, automated resume parsing and applicant ranking for employers, while providing job seekers with personalized job recommendations and a user-friendly interface to apply for their desired positions.',
+      'Full-stack job portal featuring Applicant Ranking System that automatically parses and ranks resumes based on job description relevance. The platform integrates a comprehensive candidate experience including personalized job recommendation and tools for building resumes and cover letters.',
     image: '/images/projects/job.png',
-    tools: ['React', 'Django-REST', 'SpaCy'],
+    tools: ['React', 'Django REST', 'SpaCy'],
     categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/Job-Portal-Frontend',
@@ -28,9 +28,9 @@ const projects = [
   {
     title: 'Movies For U',
     description:
-      'Movies For U is a full-stack application that allows users to search for movies based on titles or keywords, bookmark them for future viewing, and receive personalized recommendations based on their preferences.',
+      'A full-stack movie discovery platform featuring personalized recommendations based on user preference, with search and bookmarking functionality.',
     image: '/images/projects/movies.png',
-    tools: ['React', 'Django-REST', 'Scikit-learn'],
+    tools: ['React', 'Django REST', 'Scikit-learn'],
     categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/Movies-For-U',
@@ -41,9 +41,9 @@ const projects = [
   {
     title: 'ChatVerse',
     description:
-      'ChatVerse is a real-time messaging platform built with FastAPI and Next.js. The app supports instant messages with WebSocket connections and features AI-powered conversation summaries of chat history.',
+      'A real-time messaging platform that supports instant messages with WebSocket connections and features AI-powered conversation summaries of chat history.',
     image: '/images/projects/chatverse.png',
-    tools: ['FastAPI', 'Next.js', 'WebSocket', 'LLM', 'Langchain'],
+    tools: ['FastAPI', 'Next.js', 'WebSockets', 'LangChain'],
     categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/ChatVerse',
@@ -52,11 +52,11 @@ const projects = [
     },
   },
   {
-    title: 'Auto-Commenter',
+    title: 'Reddit AI Engagement Agent',
     description:
-      "A Reddit Auto Commenter application that analyzes Reddit posts and generates contextually appropriate AI comments in various tones (funny, analytical, controversial, etc.) using LLM. The system includes automated scheduling capabilities for daily comment posting.",
+      "An automated agent that analyzes Reddit posts and generates tone-specific AI comments using Gemini API and LangChain, integrated with scheduling capabilities for daily comment posting.",
     image: '/images/projects/auto-commenter.png',
-    tools: ['Langchain', 'FastAPI', 'Next.js', 'Reddit Praw'],
+    tools: ['LangChain', 'FastAPI', 'Next.js', 'PRAW'],
     categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/auto-commenter',
@@ -67,9 +67,9 @@ const projects = [
   {
     title: 'Receipt-AI',
     description:
-      "A full-stack application for parsing receipts using AI. Features receipt parsing from images, AI-powered analysis using Google's Gemini models, and rate-limited API endpoints for efficient processing.",
+      "AI-driven data extraction tool for parsing receipt images into structured data using Gemini API, integrated with rate-limited endpoints.",
     image: '/images/projects/receipt-ai.png',
-    tools: ['FastAPI', 'Next.js', 'Langchain', 'Gemini API', 'Redis'],
+    tools: ['FastAPI', 'Next.js', 'LangChain', 'Gemini API', 'Redis'],
     categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/Receipt-AI',
@@ -80,7 +80,7 @@ const projects = [
   {
     title: 'Visual-Based E-Commerce Recommender',
     description:
-      'A Deep Learning-based E-Commerce fashion product Recommendation System utilizing the ResNet50 architecture. It provides fashion recommendations based on visual similarity using advanced computer vision techniques.',
+      'A deep learning E-Commerce fashion recommendation system using ResNet50 to suggest visually similar products through transfer learning and computer vision.',
     image: '/images/projects/ecommerce-recommender.png',
     tools: ['TensorFlow', 'CNN', 'Transfer Learning', 'ResNet50'],
     categories: ['Featured', 'AI'] as ProjectCategory[],
@@ -91,67 +91,15 @@ const projects = [
     },
   },
   {
-    title: 'Sorting Visualizer',
-    description:
-      'Visualization of different sorting algorithms (bubble, insertion, selection, quick, merge, radix, shell, heap) using React',
-    image: '/images/projects/sort.png',
-    tools: ['React', 'Sorting-algorithms'],
-    categories: ['Frontend'] as ProjectCategory[],
-    links: {
-      github: 'https://github.com/The-SP/Visualizer',
-      live: 'https://sortvisualizzer.netlify.app/',
-      youtube: null,
-    },
-  },
-  {
-    title: 'N-Queen Visualizer',
-    description:
-      'Visualization of N-Queen problem in React.js. The N Queen is the problem of placing N chess queens on an N×N chessboard so that no two queens attack each other.',
-    image: '/images/projects/nqueen.png',
-    tools: ['React'],
-    categories: ['Frontend'] as ProjectCategory[],
-    links: {
-      github: 'https://github.com/The-SP/N-Queen-Visualizer',
-      live: 'https://nqueen-visualizer.netlify.app/',
-      youtube: null,
-    },
-  },
-  {
     title: 'Swastik Construction',
     description:
-      'A real project where I developed a website for a construction company, showcasing their portfolio and services with user-friendly navigation and modern design elements.',
+      'A professional website developed for a construction company, showcasing their portfolio and services with responsive design and modern UI.',
     image: '/images/projects/construction.png',
     tools: ['Next.js', 'Tailwind CSS'],
     categories: ['Frontend'] as ProjectCategory[],
     links: {
       github: null,
       live: 'https://swastiknepalconstruction.com.np/',
-      youtube: null,
-    },
-  },
-  {
-    title: '3D Airplane Modeling',
-    description:
-      '3D modeling of Airbus A380 using three.js This was done as a part of Computer Graphics course.',
-    image: '/images/projects/airplane.png',
-    tools: ['Three.js', 'C++'],
-    categories: ['Frontend'] as ProjectCategory[],
-    links: {
-      github: 'https://github.com/The-SP/Airplane-3JS',
-      live: null,
-      youtube: null,
-    },
-  },
-  {
-    title: 'Duel Battle',
-    description:
-      'Duel Battle is a multiplayer game where 2 players battle against each other in three rounds with different games (Ping Pong, Space Race, Jungle Run) and try to outscore their opponents.',
-    image: '/images/projects/duel.png',
-    tools: ['C++', 'SFML'],
-    categories: ['Frontend'] as ProjectCategory[],
-    links: {
-      github: 'https://github.com/The-SP/Duel-Battle',
-      live: null,
       youtube: null,
     },
   },
