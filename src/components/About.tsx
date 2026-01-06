@@ -11,9 +11,14 @@ import { FireworksBackground } from './animate-ui/backgrounds/fireworks';
 
 // Data variables
 const bio =
-  'As a computer engineering graduate from Pulchowk Campus, I have developed a keen interest in the areas of web development, backend APIs, and machine learning. With a passion for staying abreast of emerging technologies, I am constantly seeking opportunities to learn and grow my skillset.';
+  'Software Engineer specializing in backend development, data processing, and cloud-native architectures. A Computer Engineering graduate from Pulchowk Campus, I build scalable web applications and integrate modern LLM features—turning complex technical challenges into production-ready solutions.';
 
-const roles = ['Full Stack Developer', 'Data Engineer', 'Computer Engineer'];
+  const roles = [
+  'Backend Engineer',
+  'Data Engineer',
+  'LLM Developer',
+  'Full Stack Developer',
+];
 
 const socialLinks = [
   {
