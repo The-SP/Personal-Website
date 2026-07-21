@@ -2,15 +2,10 @@
 
 import { ExternalLink, Github, Play } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
-// Project categories type
-type ProjectCategory = 'All' | 'Featured' | 'Full-Stack' | 'AI' | 'Frontend';
-
-// Projects data with categories
 const projects = [
   {
     title: 'Hire Nepal',
@@ -18,7 +13,6 @@ const projects = [
       'Full-stack job portal featuring Applicant Ranking System that automatically parses and ranks resumes based on job description relevance. The platform integrates a comprehensive candidate experience including personalized job recommendation and tools for building resumes and cover letters.',
     image: '/images/projects/job.png',
     tools: ['React', 'Django REST', 'SpaCy'],
-    categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/Job-Portal-Frontend',
       live: null,
@@ -31,7 +25,6 @@ const projects = [
       'A full-stack movie discovery platform featuring personalized recommendations based on user preference, with search and bookmarking functionality.',
     image: '/images/projects/movies.png',
     tools: ['React', 'Django REST', 'Scikit-learn'],
-    categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/Movies-For-U',
       live: null,
@@ -44,7 +37,6 @@ const projects = [
       'A real-time messaging platform that supports instant messages with WebSocket connections and features AI-powered conversation summaries of chat history.',
     image: '/images/projects/chatverse.png',
     tools: ['FastAPI', 'Next.js', 'WebSockets', 'LangChain'],
-    categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/ChatVerse',
       live: null,
@@ -57,7 +49,6 @@ const projects = [
       "An automated agent that analyzes Reddit posts and generates tone-specific AI comments using Gemini API and LangChain, integrated with scheduling capabilities for daily comment posting.",
     image: '/images/projects/auto-commenter.png',
     tools: ['LangChain', 'FastAPI', 'Next.js', 'PRAW'],
-    categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/auto-commenter',
       live: null,
@@ -70,7 +61,6 @@ const projects = [
       "AI-driven data extraction tool for parsing receipt images into structured data using Gemini API, integrated with rate-limited endpoints.",
     image: '/images/projects/receipt-ai.png',
     tools: ['FastAPI', 'Next.js', 'LangChain', 'Gemini API', 'Redis'],
-    categories: ['Featured', 'Full-Stack', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/Receipt-AI',
       live: null,
@@ -83,49 +73,15 @@ const projects = [
       'A deep learning E-Commerce fashion recommendation system using ResNet50 to suggest visually similar products through transfer learning and computer vision.',
     image: '/images/projects/ecommerce-recommender.png',
     tools: ['TensorFlow', 'CNN', 'Transfer Learning', 'ResNet50'],
-    categories: ['Featured', 'AI'] as ProjectCategory[],
     links: {
       github: 'https://github.com/The-SP/Visual-Based-E-Commerce-Recommender',
       live: null,
       youtube: null,
     },
   },
-  {
-    title: 'Swastik Construction',
-    description:
-      'A professional website developed for a construction company, showcasing their portfolio and services with responsive design and modern UI.',
-    image: '/images/projects/construction.png',
-    tools: ['Next.js', 'Tailwind CSS'],
-    categories: ['Frontend'] as ProjectCategory[],
-    links: {
-      github: null,
-      live: 'https://swastiknepalconstruction.com.np/',
-      youtube: null,
-    },
-  },
-];
-
-// Category filter options
-const categories: ProjectCategory[] = [
-  'All',
-  'Featured',
-  'Full-Stack',
-  'AI',
-  'Frontend',
 ];
 
 const Projects = () => {
-  const [selectedCategory, setSelectedCategory] =
-    useState<ProjectCategory>('Featured');
-
-  // Filter projects based on selected category
-  const filteredProjects =
-    selectedCategory === 'All'
-      ? projects
-      : projects.filter((project) =>
-          project.categories.includes(selectedCategory),
-        );
-
   return (
     <section id="projects" className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -137,36 +93,18 @@ const Projects = () => {
               Projects
             </span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Here are some of the projects I&apos;ve worked on, showcasing my
             skills in web development, machine learning, and software
             engineering
           </p>
-
-          {/* Category Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                className={`transition-all duration-200 ${
-                  selectedCategory === category
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 text-white border-transparent'
-                    : 'hover:bg-gray-100 dark:hover:bg-gray-800'
-                }`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project) => (
             <Card
-              key={`${selectedCategory}-${index}`}
+              key={project.title}
               className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700 backdrop-blur-sm overflow-hidden"
             >
               <CardContent className="p-0">
@@ -273,15 +211,6 @@ const Projects = () => {
             </Card>
           ))}
         </div>
-
-        {/* No projects message */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-600 dark:text-gray-400">
-              No projects found in this category.
-            </p>
-          </div>
-        )}
       </div>
     </section>
   );
