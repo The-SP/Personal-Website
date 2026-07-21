@@ -1,12 +1,26 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-import { Inter } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 
-const inter = Inter({ subsets: ['latin'] });
+// Inter carries prose only. JetBrains Mono carries display and metadata —
+// the mono headline is the identity move, so it loads with the page.
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono-display',
+  weight: ['400', '700'],
+  display: 'swap',
+});
 
 const DEFAULT_THEME = 'dark';
 
@@ -15,8 +29,9 @@ const DEFAULT_THEME = 'dark';
 const themeScript = `(function(){try{var t=localStorage.getItem('theme');document.documentElement.classList.add(t==='light'||t==='dark'?t:'${DEFAULT_THEME}')}catch(e){document.documentElement.classList.add('${DEFAULT_THEME}')}})()`;
 
 export const metadata: Metadata = {
-  title: 'Suraj Pathak - Portfolio',
-  description: 'Personal Website of Suraj Pathak',
+  title: 'Suraj Pathak',
+  description:
+    'Backend, data, and LLM engineer. Selected work in job matching, realtime messaging, and document extraction.',
 };
 
 export default function RootLayout({
@@ -36,10 +51,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${mono.variable}`}>
         <ThemeProvider defaultTheme="dark">
           <Navbar />
-          <main className="pt-16">{children}</main>
+          <main className="pt-14">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

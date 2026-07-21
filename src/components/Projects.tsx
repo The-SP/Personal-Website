@@ -1,20 +1,22 @@
 'use client';
 
-import { ExternalLink, Play } from 'lucide-react';
+import { useState } from 'react';
 
-import { Github } from '@/components/icons/BrandIcons';
 import Image from 'next/image';
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import SectionHeader from '@/components/SectionHeader';
+
+// Shown before the reader opts into the rest; the remainder stays in the DOM
+// so it is still indexable and reachable by find-in-page.
+const INITIAL_COUNT = 3;
 
 const projects = [
   {
     title: 'Hire Nepal',
-    description:
-      'Full-stack job portal featuring Applicant Ranking System that automatically parses and ranks resumes based on job description relevance. The platform integrates a comprehensive candidate experience including personalized job recommendation and tools for building resumes and cover letters.',
+    summary:
+      'Job portal with an applicant ranking system that parses resumes and scores them against a job description. Includes recommendations plus resume and cover-letter tooling.',
     image: '/images/projects/job.png',
-    tools: ['React', 'Django REST', 'SpaCy'],
+    tools: ['React', 'Django REST', 'spaCy'],
     links: {
       github: 'https://github.com/The-SP/Job-Portal-Frontend',
       live: null,
@@ -22,21 +24,9 @@ const projects = [
     },
   },
   {
-    title: 'Movies For U',
-    description:
-      'A full-stack movie discovery platform featuring personalized recommendations based on user preference, with search and bookmarking functionality.',
-    image: '/images/projects/movies.png',
-    tools: ['React', 'Django REST', 'Scikit-learn'],
-    links: {
-      github: 'https://github.com/The-SP/Movies-For-U',
-      live: null,
-      youtube: 'https://youtu.be/zIf6A0G7pUQ',
-    },
-  },
-  {
     title: 'ChatVerse',
-    description:
-      'A real-time messaging platform that supports instant messages with WebSocket connections and features AI-powered conversation summaries of chat history.',
+    summary:
+      'Realtime messaging over WebSockets, with AI-generated summaries of chat history.',
     image: '/images/projects/chatverse.png',
     tools: ['FastAPI', 'Next.js', 'WebSockets', 'LangChain'],
     links: {
@@ -46,21 +36,9 @@ const projects = [
     },
   },
   {
-    title: 'Reddit AI Engagement Agent',
-    description:
-      "An automated agent that analyzes Reddit posts and generates tone-specific AI comments using Gemini API and LangChain, integrated with scheduling capabilities for daily comment posting.",
-    image: '/images/projects/auto-commenter.png',
-    tools: ['LangChain', 'FastAPI', 'Next.js', 'PRAW'],
-    links: {
-      github: 'https://github.com/The-SP/auto-commenter',
-      live: null,
-      youtube: null,
-    },
-  },
-  {
     title: 'Receipt-AI',
-    description:
-      "AI-driven data extraction tool for parsing receipt images into structured data using Gemini API, integrated with rate-limited endpoints.",
+    summary:
+      'Parses receipt images into structured data using the Gemini API, behind rate-limited endpoints.',
     image: '/images/projects/receipt-ai.png',
     tools: ['FastAPI', 'Next.js', 'LangChain', 'Gemini API', 'Redis'],
     links: {
@@ -70,9 +48,33 @@ const projects = [
     },
   },
   {
-    title: 'Visual-Based E-Commerce Recommender',
-    description:
-      'A deep learning E-Commerce fashion recommendation system using ResNet50 to suggest visually similar products through transfer learning and computer vision.',
+    title: 'Movies For U',
+    summary:
+      'Movie discovery platform with preference-based recommendations, search, and bookmarking.',
+    image: '/images/projects/movies.png',
+    tools: ['React', 'Django REST', 'Scikit-learn'],
+    links: {
+      github: 'https://github.com/The-SP/Movies-For-U',
+      live: null,
+      youtube: 'https://youtu.be/zIf6A0G7pUQ',
+    },
+  },
+  {
+    title: 'Reddit AI Engagement Agent',
+    summary:
+      'Analyses Reddit posts and drafts tone-matched comments with the Gemini API, on a daily posting schedule.',
+    image: '/images/projects/auto-commenter.png',
+    tools: ['LangChain', 'FastAPI', 'Next.js', 'PRAW'],
+    links: {
+      github: 'https://github.com/The-SP/auto-commenter',
+      live: null,
+      youtube: null,
+    },
+  },
+  {
+    title: 'Visual E-Commerce Recommender',
+    summary:
+      'Fashion recommender that surfaces visually similar products using ResNet50 and transfer learning.',
     image: '/images/projects/ecommerce-recommender.png',
     tools: ['TensorFlow', 'CNN', 'Transfer Learning', 'ResNet50'],
     links: {
@@ -83,137 +85,115 @@ const projects = [
   },
 ];
 
-const Projects = () => {
-  return (
-    <section id="projects" className="py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-              Projects
-            </span>
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Here are some of the projects I&apos;ve worked on, showcasing my
-            skills in web development, machine learning, and software
-            engineering
-          </p>
-        </div>
+const linkLabels = {
+  github: 'Code',
+  live: 'Live',
+  youtube: 'Demo',
+} as const;
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <Card
+const Projects = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const hiddenCount = projects.length - INITIAL_COUNT;
+
+  return (
+    <section id="projects" className="px-6 py-20 md:px-10 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader
+          label="Selected work"
+          trailing={String(projects.length).padStart(2, '0')}
+        />
+
+        <div className="mt-12">
+          {projects.map((project, index) => (
+            <article
               key={project.title}
-              className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700 backdrop-blur-sm overflow-hidden"
+              // Toggled with a class, not the `hidden` attribute: Tailwind's
+              // preflight scopes [hidden] inside :where() (zero specificity),
+              // so the `grid` utility would override it.
+              className={`group gap-6 border-t border-rule py-10 transition-colors md:grid-cols-[1fr_18rem] md:gap-12 ${
+                !isExpanded && index >= INITIAL_COUNT ? 'hidden' : 'grid'
+              }`}
             >
-              <CardContent className="p-0">
-                {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5 z-10" />
+              <div className="order-2 md:order-1">
+                <h3 className="display text-[1.625rem] tracking-tight md:text-[1.875rem]">
+                  {project.title}
+                </h3>
+
+                <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">
+                  {project.summary}
+                </p>
+
+                <p className="meta mt-5 flex flex-wrap gap-x-3 gap-y-1">
+                  {project.tools.map((tool, i) => (
+                    <span key={tool} className="flex items-center gap-3">
+                      {i > 0 && <span className="text-rule">·</span>}
+                      {tool}
+                    </span>
+                  ))}
+                </p>
+
+                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+                  {(
+                    Object.keys(linkLabels) as (keyof typeof linkLabels)[]
+                  ).map((key) => {
+                    const href = project.links[key];
+                    if (!href) return null;
+                    return (
+                      <a
+                        key={key}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 border-b border-transparent pb-0.5 font-mono text-xs tracking-wider uppercase transition-colors hover:border-signal hover:text-signal"
+                      >
+                        {linkLabels[key]}
+                        <span aria-hidden>↗</span>
+                        <span className="sr-only">
+                          {' '}
+                          for {project.title}
+                        </span>
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="order-1 md:order-2">
+                <div className="overflow-hidden border border-rule">
                   <Image
                     src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    onError={(e) => {
-                      // Fallback gradient background if image fails to load
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.parentElement!.style.background =
-                        'linear-gradient(135deg, rgb(59 130 246 / 0.5) 0%, rgb(147 51 234 / 0.5) 100%)';
-                    }}
+                    alt={`${project.title} interface`}
+                    width={576}
+                    height={360}
+                    sizes="(min-width: 768px) 18rem, 100vw"
+                    className="aspect-[16/10] w-full object-cover object-top opacity-90 transition-opacity duration-300 group-hover:opacity-100"
                   />
                 </div>
-
-                {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Tools Used */}
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tools.map((tool) => (
-                        <span
-                          key={tool}
-                          className="px-2 py-1 text-xs font-medium bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 rounded-full"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Project Links */}
-                  <div className="flex items-center gap-3">
-                    {project.links.github && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors duration-200"
-                        asChild
-                      >
-                        <a
-                          href={project.links.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Github className="w-4 h-4" />
-                          <span className="text-xs">Code</span>
-                        </a>
-                      </Button>
-                    )}
-
-                    {project.links.live && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 transition-colors duration-200"
-                        asChild
-                      >
-                        <a
-                          href={project.links.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span className="text-xs">Live</span>
-                        </a>
-                      </Button>
-                    )}
-
-                    {project.links.youtube && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2 hover:bg-red-600 hover:text-white dark:hover:bg-red-500 transition-colors duration-200"
-                        asChild
-                      >
-                        <a
-                          href={project.links.youtube}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Play className="w-4 h-4" />
-                          <span className="text-xs">Demo</span>
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </article>
           ))}
         </div>
+
+        {hiddenCount > 0 && (
+          <div className="border-t border-rule pt-10">
+            <button
+              type="button"
+              onClick={() => setIsExpanded((expanded) => !expanded)}
+              aria-expanded={isExpanded}
+              className="btn-pill gap-2.5 px-5 py-3"
+            >
+              {isExpanded ? 'Show less' : `Show ${hiddenCount} more`}
+              <span
+                aria-hidden
+                className={`transition-transform duration-200 ${
+                  isExpanded ? 'rotate-180' : ''
+                }`}
+              >
+                ↓
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

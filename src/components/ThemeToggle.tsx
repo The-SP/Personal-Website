@@ -1,37 +1,35 @@
 'use client';
 
 import { Moon, Sun } from 'lucide-react';
-import React from 'react';
 
 import { useTheme } from '@/components/theme-provider';
-import { Button } from '@/components/ui/button';
 
 const ThemeToggle = () => {
   const { toggleTheme } = useTheme();
 
   return (
-    <Button
-      variant="ghost"
-      size="sm"
+    <button
+      type="button"
       onClick={toggleTheme}
-      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+      className="btn-pill ml-1 h-8 gap-2 px-2 md:px-2.5"
       aria-label="Toggle theme"
     >
       {/*
-        The server can't know the stored preference, so both icons are always
-        rendered and CSS picks one via the <html> class. This keeps server and
-        client markup identical while still respecting the saved theme on the
-        very first paint.
+        The server can't know the stored preference, so both states render and
+        CSS picks one via the <html> class. Server and client markup stay
+        identical while still honouring the saved theme on first paint.
+        Each label names the theme the click switches *to*, and is hidden below
+        md where the navbar needs the horizontal space.
       */}
-      <Sun
-        aria-hidden
-        className="hidden dark:block h-5 w-5 text-yellow-500 transition-transform duration-200 hover:rotate-180"
-      />
-      <Moon
-        aria-hidden
-        className="block dark:hidden h-5 w-5 text-gray-700 transition-transform duration-200 hover:rotate-12"
-      />
-    </Button>
+      <span aria-hidden className="hidden items-center gap-2 dark:inline-flex">
+        <Sun className="h-3.5 w-3.5" />
+        <span className="hidden md:inline">Light</span>
+      </span>
+      <span aria-hidden className="inline-flex items-center gap-2 dark:hidden">
+        <Moon className="h-3.5 w-3.5" />
+        <span className="hidden md:inline">Dark</span>
+      </span>
+    </button>
   );
 };
 

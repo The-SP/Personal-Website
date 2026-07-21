@@ -1,135 +1,76 @@
-'use client';
-
 import Image from 'next/image';
-import React from 'react';
-import Typewriter from 'typewriter-effect';
 
-import { Github, Linkedin } from '@/components/icons/BrandIcons';
-import { Button } from '@/components/ui/button';
+import { socialLinks } from '@/lib/social';
 
-import { FireworksBackground } from './animate-ui/backgrounds/fireworks';
-
-// Data variables
 const bio =
-  'Software Engineer specializing in backend development, data processing, and cloud-native architectures. A Computer Engineering graduate from Pulchowk Campus, I build scalable web applications and integrate modern LLM features—turning complex technical challenges into production-ready solutions.';
+  'Software engineer focused on backend development, data processing, and cloud-native architecture. Comfortable owning a service end to end, including integrating LLM features into real products.';
 
-  const roles = [
-  'Backend Engineer',
-  'Data Engineer',
-  'LLM Developer',
-  'Full Stack Developer',
-];
-
-const socialLinks = [
-  {
-    name: 'GitHub',
-    url: 'https://github.com/the-sp',
-    icon: Github,
-    hoverColor:
-      'hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900',
-  },
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/surajpathak-eng',
-    icon: Linkedin,
-    hoverColor: 'hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500',
-  },
-];
+const roles = ['backend', 'data', 'llm'];
 
 const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center px-4 py-8 md:py-20"
+      className="border-b border-rule px-6 py-20 md:px-10 md:py-32"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
-          {/* Mobile-first layout - Image first on mobile */}
-          <div className="order-2 lg:order-1 space-y-6 md:space-y-8">
-            <div className="space-y-4 md:space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white text-center lg:text-left">
-                Hi, I am{' '}
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-                  Suraj Pathak
+      <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1fr_20rem] lg:gap-16">
+        <div className="rise">
+          {/* Role line replaces the typewriter: same information, stated once. */}
+          <p className="meta flex flex-wrap items-center gap-x-3 gap-y-1">
+            {roles.map((role, i) => (
+              <span key={role} className="flex items-center gap-3">
+                {i > 0 && <span className="text-rule">/</span>}
+                {role}
+              </span>
+            ))}
+          </p>
+
+          <h1 className="display mt-6 text-[clamp(2.75rem,9vw,5.25rem)]">
+            Suraj
+            <br />
+            Pathak
+          </h1>
+
+          <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-[1.0625rem]">
+            {bio}
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            {socialLinks.map(({ name, url, icon: Icon }) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-pill group gap-2.5 px-4 py-2.5"
+              >
+                <Icon className="h-4 w-4" />
+                {name}
+                <span
+                  aria-hidden
+                  className="text-muted transition-transform group-hover:translate-x-0.5 group-hover:text-signal"
+                >
+                  ↗
                 </span>
-              </h1>
-
-              <div className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 text-center lg:text-left">
-                <span className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                  <span>I am a</span>
-                  <span className="font-semibold text-blue-600 dark:text-blue-400 min-w-0 flex-shrink-0">
-                    <Typewriter
-                      options={{
-                        strings: roles,
-                        autoStart: true,
-                        loop: true,
-                        delay: 75,
-                        deleteSpeed: 30,
-                      }}
-                    />
-                  </span>
-                </span>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed text-center lg:text-left">
-                {bio}
-              </p>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex items-center justify-center lg:justify-start space-x-4">
-              {socialLinks.map((link) => {
-                const IconComponent = link.icon;
-                return (
-                  <Button
-                    key={link.name}
-                    variant="outline"
-                    size="lg"
-                    className={`flex items-center space-x-2 ${link.hoverColor} transition-colors duration-200`}
-                    asChild
-                  >
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <IconComponent className="w-5 h-5" />
-                      <span>{link.name}</span>
-                    </a>
-                  </Button>
-                );
-              })}
-            </div>
+              </a>
+            ))}
           </div>
+        </div>
 
-          {/* Profile image - First on mobile, second on desktop */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Fireworks background for profile section */}
-              <FireworksBackground className="absolute -inset-12 md:-inset-16 lg:-inset-20 w-auto h-auto z-0" />
-
-              {/* Background decoration */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl scale-110 z-10"></div>
-
-              {/* Profile image container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 z-20">
-                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/20 dark:border-white/10 shadow-2xl backdrop-blur-sm">
-                  <Image
-                    src="/images/profile.png"
-                    alt="Suraj Pathak"
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-cover"
-                    priority
-                  />
-                </div>
-
-                {/* Decorative ring */}
-                <div className="absolute inset-0 rounded-full border-2 border-dashed border-blue-400/30 dark:border-blue-300/30 animate-spin-slow"></div>
-              </div>
-            </div>
+        {/* Portrait: squared off and hairline-framed, full colour, no glow. */}
+        <div className="rise order-first lg:order-none" style={{ animationDelay: '120ms' }}>
+          <div className="group relative mx-auto w-full max-w-[17rem] border border-rule p-2 transition-colors duration-300 hover:border-signal lg:mx-0 lg:max-w-none">
+            <Image
+              src="/images/profile.png"
+              alt="Suraj Pathak"
+              width={400}
+              height={400}
+              className="aspect-square w-full object-cover transition-[filter] duration-300 group-hover:saturate-110"
+              priority
+            />
+            <p className="meta mt-2 flex justify-end px-0.5">
+              <span className="text-signal">available</span>
+            </p>
           </div>
         </div>
       </div>

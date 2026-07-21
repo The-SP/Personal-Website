@@ -1,136 +1,138 @@
-'use client';
-
 import Image from 'next/image';
-import React from 'react';
 
-import { Card, CardContent } from '@/components/ui/card';
+import SectionHeader from '@/components/SectionHeader';
 
-// Skills data with SVG images from https://devicon.dev/
-const skills = [
+/*
+  Grouped by role rather than listed flat. Fifteen equal cards say nothing
+  about how the work is organised; the grouping is the information.
+*/
+const skillGroups = [
   {
-    name: 'Python',
-    category: 'Backend',
-    image: '/images/skills/python.svg',
+    label: 'Backend',
+    items: [
+      { name: 'Python', image: '/images/skills/python.svg' },
+      { name: 'FastAPI', image: '/images/skills/fastapi.svg' },
+      {
+        name: 'Django',
+        image: '/images/skills/django.svg',
+        imageDark: '/images/skills/django-dark.svg',
+      },
+      { name: 'Node.js', image: '/images/skills/node.svg' },
+    ],
   },
   {
-    name: 'FastAPI',
-    category: 'Backend',
-    image: '/images/skills/fastapi.svg',
+    label: 'Storage',
+    items: [
+      { name: 'PostgreSQL', image: '/images/skills/postgresql.svg' },
+      { name: 'Redis', image: '/images/skills/redis.svg' },
+    ],
   },
   {
-    name: 'Django',
-    category: 'Backend',
-    image: '/images/skills/django.svg',
+    label: 'Infrastructure',
+    items: [
+      {
+        name: 'AWS',
+        image: '/images/skills/aws.svg',
+        imageDark: '/images/skills/aws-dark.svg',
+      },
+      { name: 'Docker', image: '/images/skills/docker.svg' },
+      { name: 'Git', image: '/images/skills/git.svg' },
+    ],
   },
   {
-    name: 'PostgreSQL',
-    category: 'Database',
-    image: '/images/skills/postgresql.svg',
+    label: 'Data & LLM',
+    items: [
+      {
+        name: 'LangChain',
+        image: '/images/skills/langchain.svg',
+        imageDark: '/images/skills/langchain-dark.svg',
+      },
+      { name: 'Scikit-Learn', image: '/images/skills/scikitlearn.svg' },
+      { name: 'TensorFlow', image: '/images/skills/tensorflow.svg' },
+    ],
   },
   {
-    name: 'AWS',
-    category: 'Cloud',
-    image: '/images/skills/aws.svg',
-  },
-  {
-    name: 'Docker',
-    category: 'Tools',
-    image: '/images/skills/docker.svg',
-  },
-  {
-    name: 'LangChain',
-    category: 'LLM',
-    image: '/images/skills/langchain.svg',
-  },
-  {
-    name: 'Redis',
-    category: 'Database',
-    image: '/images/skills/redis.svg',
-  },
-  {
-    name: 'Node.js',
-    category: 'Backend',
-    image: '/images/skills/node.svg',
-  },
-  {
-    name: 'TypeScript',
-    category: 'Frontend',
-    image: '/images/skills/typescript.svg',
-  },
-  {
-    name: 'Next.js',
-    category: 'Frontend',
-    image: '/images/skills/nextjs.svg',
-  },
-  {
-    name: 'React',
-    category: 'Frontend',
-    image: '/images/skills/react.svg',
-  },
-  {
-    name: 'Git',
-    category: 'Tools',
-    image: '/images/skills/git.svg',
-  },
-  {
-    name: 'Scikit-Learn',
-    category: 'Machine Learning',
-    image: '/images/skills/scikitlearn.svg',
-  },
-  {
-    name: 'TensorFlow',
-    category: 'Machine Learning',
-    image: '/images/skills/tensorflow.svg',
+    label: 'Frontend',
+    items: [
+      { name: 'TypeScript', image: '/images/skills/typescript.svg' },
+      { name: 'React', image: '/images/skills/react.svg' },
+      {
+        name: 'Next.js',
+        image: '/images/skills/nextjs.svg',
+        imageDark: '/images/skills/nextjs-dark.svg',
+      },
+    ],
   },
 ];
 
+/*
+  A few devicon marks are dark-on-transparent and vanish against the ink
+  background, so they ship a recoloured variant. Both render and CSS picks one
+  via the <html> class — same approach as the theme toggle, so server and
+  client markup stay identical through hydration. Keeping the dual render here
+  means a new skill only has to declare `imageDark`, never repeat the wiring.
+*/
+const SkillIcon = ({
+  image,
+  imageDark,
+}: {
+  image: string;
+  imageDark?: string;
+}) => {
+  const base = 'h-6 w-6 shrink-0 object-contain';
+  return (
+    <>
+      <Image
+        src={image}
+        alt=""
+        width={24}
+        height={24}
+        className={imageDark ? `${base} dark:hidden` : base}
+      />
+      {imageDark && (
+        <Image
+          src={imageDark}
+          alt=""
+          width={24}
+          height={24}
+          aria-hidden
+          className={`hidden ${base} dark:block`}
+        />
+      )}
+    </>
+  );
+};
+
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Technical{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-              Skills
-            </span>
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Here are the technologies and tools I work with to bring ideas to
-            life
-          </p>
-        </div>
+    <section
+      id="skills"
+      className="border-b border-rule px-6 py-20 md:px-10 md:py-28"
+    >
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader label="Stack" />
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {skills.map((skill, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700 backdrop-blur-sm"
+        <dl className="mt-12 space-y-0">
+          {skillGroups.map((group) => (
+            <div
+              key={group.label}
+              className="grid gap-x-8 gap-y-4 border-t border-rule py-6 md:grid-cols-[10rem_1fr]"
             >
-              <CardContent>
-                <div className="flex flex-col items-center text-center space-y-4">
-                  {/* Skill Image */}
-                  <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 p-2">
-                    <Image
-                      src={skill.image}
-                      alt={skill.name}
-                      width={40}
-                      height={40}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-
-                  {/* Skill name */}
-                  <h4 className="text-sm font-bold text-gray-900 dark:text-white">
-                    {skill.name}
-                  </h4>
-                </div>
-              </CardContent>
-            </Card>
+              <dt className="meta pt-1">{group.label}</dt>
+              <dd className="flex flex-wrap gap-x-7 gap-y-4">
+                {group.items.map((item) => (
+                  <span
+                    key={item.name}
+                    className="inline-flex items-center gap-3 text-base"
+                  >
+                    <SkillIcon image={item.image} imageDark={item.imageDark} />
+                    {item.name}
+                  </span>
+                ))}
+              </dd>
+            </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );
