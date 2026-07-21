@@ -115,6 +115,7 @@ const Projects = () => {
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                     onError={(e) => {
                       // Fallback gradient background if image fails to load
