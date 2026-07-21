@@ -1,6 +1,8 @@
 'use client';
 
-import { ExternalLink, Github, Play } from 'lucide-react';
+import { ExternalLink, Play } from 'lucide-react';
+
+import { Github } from '@/components/icons/BrandIcons';
 import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';

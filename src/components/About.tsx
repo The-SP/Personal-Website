@@ -1,10 +1,10 @@
 'use client';
 
-import { Github, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 import Typewriter from 'typewriter-effect';
 
+import { Github, Linkedin } from '@/components/icons/BrandIcons';
 import { Button } from '@/components/ui/button';
 
 import { FireworksBackground } from './animate-ui/backgrounds/fireworks';
