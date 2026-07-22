@@ -1,11 +1,7 @@
 import Image from 'next/image';
 
+import { bio, roles } from '@/lib/content';
 import { socialLinks } from '@/lib/social';
-
-const bio =
-  'Software engineer focused on backend development, data processing, and cloud-native architecture. Comfortable owning a service end to end, including integrating LLM features into real products.';
-
-const roles = ['backend', 'data', 'llm'];
 
 const About = () => {
   return (
