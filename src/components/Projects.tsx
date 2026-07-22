@@ -52,7 +52,7 @@ const projects = [
     summary:
       'Movie discovery platform with preference-based recommendations, search, and bookmarking.',
     image: '/images/projects/movies.png',
-    tools: ['React', 'Django REST', 'Scikit-learn'],
+    tools: ['React', 'Django REST', 'Scikit-Learn'],
     links: {
       github: 'https://github.com/The-SP/Movies-For-U',
       live: null,
@@ -96,7 +96,7 @@ const Projects = () => {
   const hiddenCount = projects.length - INITIAL_COUNT;
 
   return (
-    <section id="projects" className="px-6 py-20 md:px-10 md:py-28">
+    <section id="projects" className="px-6 pt-8 pb-20 md:px-10 md:pt-20 md:pb-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="Selected work"
@@ -123,11 +123,15 @@ const Projects = () => {
                   {project.summary}
                 </p>
 
-                <p className="meta mt-5 flex flex-wrap gap-x-3 gap-y-1">
+                <p className="meta mt-5 flex flex-wrap items-center gap-x-3 gap-y-1">
                   {project.tools.map((tool, i) => (
                     <span key={tool} className="flex items-center gap-3">
-                      {i > 0 && <span className="text-rule">·</span>}
                       {tool}
+                      {i < project.tools.length - 1 && (
+                        <span aria-hidden className="text-muted/50">
+                          ·
+                        </span>
+                      )}
                     </span>
                   ))}
                 </p>

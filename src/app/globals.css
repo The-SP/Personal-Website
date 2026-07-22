@@ -57,6 +57,14 @@
     transition: background-color 0.2s ease, border-color 0.2s ease;
   }
 
+  /*
+    Offset anchor scrolling by the fixed navbar height so a clicked nav link
+    lands the section clear of the navbar, matching its default resting spot.
+  */
+  section[id] {
+    scroll-margin-top: 3.5rem;
+  }
+
   ::selection {
     background: var(--signal);
     color: var(--background);

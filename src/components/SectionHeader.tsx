@@ -7,7 +7,7 @@ const SectionHeader = ({
   trailing?: string;
 }) => (
   <header className="flex items-baseline gap-4">
-    <span className="section-label">{label}</span>
+    <h2 className="section-label">{label}</h2>
     <span className="h-px flex-1 bg-rule" />
     {trailing && <span className="meta">{trailing}</span>}
   </header>

@@ -107,7 +107,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="border-b border-rule px-6 py-20 md:px-10 md:py-28"
+      className="border-b border-rule px-6 pt-8 pb-20 md:px-10 md:pt-20 md:pb-28"
     >
       <div className="mx-auto max-w-6xl">
         <SectionHeader label="Stack" />

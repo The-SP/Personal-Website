@@ -11,7 +11,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="border-b border-rule px-6 py-20 md:px-10 md:py-32"
+      className="border-b border-rule px-6 pt-8 pb-20 md:px-10 md:pt-20 md:pb-32"
     >
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1fr_20rem] lg:gap-16">
         <div className="rise">
@@ -19,16 +19,14 @@ const About = () => {
           <p className="meta flex flex-wrap items-center gap-x-3 gap-y-1">
             {roles.map((role, i) => (
               <span key={role} className="flex items-center gap-3">
-                {i > 0 && <span className="text-rule">/</span>}
+                {i > 0 && <span className="text-muted/50">/</span>}
                 {role}
               </span>
             ))}
           </p>
 
           <h1 className="display mt-6 text-[clamp(2.75rem,9vw,5.25rem)]">
-            Suraj
-            <br />
-            Pathak
+              Suraj <br />Pathak
           </h1>
 
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-[1.0625rem]">
